@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 import 'package:recipe_master/widget/support_widget.dart';
 
@@ -13,6 +12,14 @@ class _HomeState extends State<Home> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      floatingActionButton: FloatingActionButton(
+        backgroundColor: Colors.black,
+        onPressed: () {},
+        child: Icon(
+          Icons.add,
+          color: Colors.white,
+        ),
+      ),
       body: Container(
         margin: EdgeInsets.only(
           top: 40,
@@ -92,7 +99,7 @@ class _HomeState extends State<Home> {
                       ],
                     )),
                     Container(
-                      margin: EdgeInsets.only(left: 20),
+                        margin: EdgeInsets.only(left: 20),
                         child: Column(
                           children: [
                             ClipRRect(
@@ -158,17 +165,90 @@ class _HomeState extends State<Home> {
                 ),
               ),
             ),
-            SizedBox(height: 20,),
+            SizedBox(
+              height: 10,
+            ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.start,
+              children: [
+                Text(
+                  "Trending Recipes",
+                  style: AppWidget.headingStyle(),
+                ),
+              ],
+            ),
+            SizedBox(
+              height: 10,
+            ),
             Expanded(
               child: ListView(
                 scrollDirection: Axis.horizontal,
                 children: [
                   Container(
                     child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         ClipRRect(
-                            borderRadius: BorderRadius.circular(10)
-                            ,child: Image.asset("images/pasta.jpg",height: 300,width: 250,fit: BoxFit.cover,))
+                            borderRadius: BorderRadius.circular(10),
+                            child: Image.asset(
+                              "images/pasta.jpg",
+                              height: 300,
+                              width: 250,
+                              fit: BoxFit.cover,
+                            )),
+                        SizedBox(
+                          height: 10,
+                        ),
+                        Text(
+                          "Mint Pasta",
+                          style: AppWidget.boldfieldtextstyle(),
+                        )
+                      ],
+                    ),
+                  ),
+                  Container(
+                    margin: EdgeInsets.only(left: 20),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        ClipRRect(
+                            borderRadius: BorderRadius.circular(10),
+                            child: Image.asset(
+                              "images/burger.jpg",
+                              height: 300,
+                              width: 250,
+                              fit: BoxFit.cover,
+                            )),
+                        SizedBox(
+                          height: 10,
+                        ),
+                        Text(
+                          "Beef Burger",
+                          style: AppWidget.boldfieldtextstyle(),
+                        )
+                      ],
+                    ),
+                  ),
+                  Container(
+                    margin: EdgeInsets.only(left: 20),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        ClipRRect(
+                            borderRadius: BorderRadius.circular(10),
+                            child: Image.asset(
+                              "images/pizza.jpg",
+                              height: 300,
+                              width: 250,
+                              fit: BoxFit.cover,
+                            )),
+                        SizedBox(
+                          height: 10,
+                        ),
+                        Text(
+                          "Pizza (Fajita)",
+                          style: AppWidget.boldfieldtextstyle(),
+                        )
                       ],
                     ),
                   )
