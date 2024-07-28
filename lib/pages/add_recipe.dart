@@ -1,6 +1,6 @@
 import 'dart:io';
-
 import 'package:firebase_storage/firebase_storage.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:random_string/random_string.dart';
@@ -66,11 +66,15 @@ class _AddRecipeState extends State<AddRecipe> {
         });
       } catch (e) {
         // Handle errors here
-        print("Error uploading item: $e");
+        if (kDebugMode) {
+          print("Error uploading item: $e");
+        }
       }
     } else {
       // Optionally, you can display a message to the user
-      print("Please provide all required fields and select an image.");
+      if (kDebugMode) {
+        print("Please provide all required fields and select an image.");
+      }
     }
   }
 
@@ -169,7 +173,7 @@ class _AddRecipeState extends State<AddRecipe> {
               ),
               child: TextField(
                 controller: detailsController,
-                maxLines: 12,
+                maxLines: 8,
                 decoration: InputDecoration(
                   border: InputBorder.none,
                   hintText: "Write your recipe details",
@@ -178,7 +182,9 @@ class _AddRecipeState extends State<AddRecipe> {
             ),
             SizedBox(height: 30),
             GestureDetector(
-              onTap: uploadItem,
+              onTap: () {
+                uploadItem();
+              },
               child: Container(
                 padding: EdgeInsets.symmetric(vertical: 10),
                 decoration: BoxDecoration(

@@ -12,6 +12,7 @@ class _RecipeState extends State<Recipe> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      // ignore: avoid_unnecessary_containers
       body: Container(
         child: Stack(
           children: [
